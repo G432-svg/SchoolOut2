@@ -3,6 +3,8 @@ package repository;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import static javax.persistence.Persistence.createEntityManagerFactory;
+
 
 public class EMFConnection {
 

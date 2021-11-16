@@ -1,46 +1,50 @@
 package repository;
 
+import entities.Grade;
 import entities.Person;
+import entities.User;
+
 import javax.persistence.EntityManager;
 import java.util.List;
 
 import static repository.EMFConnection.getOtiliaEMF;
 
-public class PersonDAO {
+public class GradeDAO {
 
-    public Person getOne(Integer id){
+    public Grade getOne(long id){
         EntityManager em = getOtiliaEMF().createEntityManager();
-        return em.find(Person.class,id);
+        return em.find(Grade.class,id);
     }
 
-    public List<Person> getAll(){
+    public List<Grade> getAll(){
         EntityManager em = getOtiliaEMF().createEntityManager();
-        return em.createQuery("Select p From Person p").getResultList();
+        return em.createQuery("Select g From Grade g").getResultList();
 
     }
 
-
-    public void createOne(Person person){
+    public void createGrade(Grade grade){
         EntityManager em = getOtiliaEMF().createEntityManager();
         em.getTransaction().begin();
-        em.persist(person);
+        em.persist(grade);
         em.getTransaction().commit();
     }
 
-    public void updateOne(Person person){
+    public void updateGrade(Grade grade){
         EntityManager em = getOtiliaEMF().createEntityManager();
         em.getTransaction().begin();
-        em.merge(person);
+        em.merge(grade);
         em.getTransaction().commit();
     }
 
-    public void deleteOne(Person person){
+    public void deleteGrade(Grade grade){
         EntityManager em = getOtiliaEMF().createEntityManager();
         em.getTransaction().begin();
-
-        em.remove(em.find(Person.class,person.getId()));
+        em.remove(em.find(Grade.class,grade.getExam()));
         em.getTransaction().commit();
     }
-
+//    public Grade getGradeByPerson(Person grade){
+//        EntityManager em = EMFConnection.getOtiliaEMF().createEntityManager();
+//        return em.find(Person.class,grade);
+//    }
 }
 

@@ -7,9 +7,9 @@
     <persistence-unit name="databaseOtilia" >
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value=""/>
-            <property name="javax.persistence.jdbc.user" value=""/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://moktok.intecbrussel.org:33062/otilia"/>
+            <property name="javax.persistence.jdbc.user" value="otilia"/>
+            <property name="javax.persistence.jdbc.password" value="otilia"/>
 
             <!-- Defineer je dialect-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>

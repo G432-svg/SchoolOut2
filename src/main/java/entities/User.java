@@ -8,11 +8,9 @@ public class User {
     private String login;
     //    @Convert(converter = AttributeEncryptor.class)
     private String passwordHash;
-
-    boolean active;
-    @OneToOne(cascade = CascadeType.PERSIST)
+    private boolean active;
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.MERGE})
     private Person person;
-
 
     public User() {
 

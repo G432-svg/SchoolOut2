@@ -1,15 +1,13 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 public class Exam {
     @Id
+    @GeneratedValue
     private long id;
     private String name;
     private String description;
@@ -20,7 +18,7 @@ public class Exam {
     private Module module;
     @ManyToOne
     private Exam examGroup;
-    @OneToMany(mappedBy = "examGroup")
+    @OneToMany(mappedBy = "examGroup",cascade = {CascadeType.MERGE})
     private List<Exam> subExams;
 
     public Exam() {

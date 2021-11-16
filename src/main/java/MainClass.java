@@ -5,6 +5,7 @@ import repository.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,25 @@ public class MainClass {
         try {
 
 //           ExamDAO examDAO =new ExamDAO();
-//           Exam exam = new Exam(1,"FinalExam");
-//           examDAO.createOne(examDAO.getOne("FinalExam"));
+//           Exam exam = new Exam();
+//           Exam exam1= new Exam();
+//           exam1 = examDAO.getExamById(2l);
+//           exam.setExamGroup(exam1);
+//           exam.setName("IntermitedExam");
+//           examDAO.createOne(exam);
+//
+           GradeDAO gradeDAO = new GradeDAO();
+           PersonDAO personDAO = new PersonDAO();
+           ExamDAO examDAO = new ExamDAO();
+           Grade grade = new Grade();
+           Person person = personDAO.getOne(6);
+           Exam exam = examDAO.getExamById(12l);
+           grade.setPerson(person);
+           grade.setExam(exam);
+           grade.setGradeValue(BigDecimal.valueOf(60));
+           gradeDAO.createGrade(grade);
+
+
 
 //          PersonDAO personDAO = new PersonDAO();
 //          Person person = new Person("Hagi", "Gigi", Gender.MALE);
@@ -45,10 +63,10 @@ public class MainClass {
 
 
 
-             UserDAO userDAO = new UserDAO();
-             User user = new User("mukluk", "lollipop", true);
-             userDAO.updateOne(user);
-            System.out.println(user);
+//             UserDAO userDAO = new UserDAO();
+//             User user5 = new User("mukluk", "lollipop", true);
+//             userDAO.createOne(user5);
+//            System.out.println(user5);
 //             User user = userDAO.getOne("mukluk");
 //             userDAO.deleteOne(user);
 

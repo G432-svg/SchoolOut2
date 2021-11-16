@@ -7,10 +7,10 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     private String firstName;
     private String familyName;
-    @Enumerated
+    @Enumerated(value = EnumType.ORDINAL)
     private Gender gender;
     @ManyToOne
     private Course courseActive;
@@ -21,7 +21,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(int id, String firstName, String familyName) {
+    public Person(Integer id, String firstName, String familyName) {
         this.id = id;
         this.firstName = firstName;
         this.familyName = familyName;
@@ -32,8 +32,6 @@ public class Person {
         this.familyName = familyName;
         this.gender = gender;
     }
-
-
 
     public int getId() {
         return id;
